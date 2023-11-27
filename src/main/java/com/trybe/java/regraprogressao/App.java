@@ -12,6 +12,18 @@ public class App {
   private static int[] activityGrades;
 
   /**
+   * Metodo para obter a soma dos pesos das atividades.
+   */
+  public static int getSumOfWeights() {
+    int sum = 0;
+    for (int i = 0; i < activityQuantity; i += 1) {
+      sum += activityWeights[i];
+    }
+
+    return sum;
+  }
+
+  /**
    * Metodo main.
    */
   public static void main(String[] args) {
@@ -36,6 +48,11 @@ public class App {
       System.out.println("Digite a nota obtida para " + activityNames[i - 1] + ":");
       String grade = scanner.nextLine();
       activityGrades[i - 1] = Integer.parseInt(grade);
+    }
+
+    int sumOfWeights = getSumOfWeights();
+    if (sumOfWeights != 100) {
+      System.out.println("A soma dos pesos é diferente de 100!");
     }
   }
 }
